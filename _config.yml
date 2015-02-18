@@ -35,3 +35,7 @@ credits: 'This site is build with Freelancer, a free to use, open  source Bootst
 # Build settings 
 markdown: kramdown 
 permalink: pretty
+analytics :
+  provider : google
+  google :
+  tracking_id : 'UA-59914141-1'
