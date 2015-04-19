@@ -446,3 +446,14 @@ footer .footer-below {
     -ms-transform: rotate(90deg);
     transform: rotate(90deg);
 }
+#termsnav{
+    padding-bottom: 0px;
+    background-color: #EC8B19;
+}
+#termsnav a, 
+#termsnav a:link, 
+#termsnav a:hover, 
+#termsnav a:active {
+    color: white;
+}
+
