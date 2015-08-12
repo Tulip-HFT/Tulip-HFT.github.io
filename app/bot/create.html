@@ -1,0 +1,43 @@
+<div class="modal-header">
+    <h3 class="modal-title">{{modaltitle}}</h3>
+</div>
+<form name="botform " class="modal-body form-horizontal">
+    <fieldset class="form-group">
+        <label class="control-label col-sm-2" >Bot type: </label>
+
+        <div class="col-sm-10">
+            <select name="type" id="type" ng-model="bot.type" ng-change="changeType($index)" tooltip-placement="right"
+                    tooltip-html="typeTooltip" required>
+                <option value="ema">ema</option>
+                <option value="graph">graph</option>
+                <option value="" selected>Select a bot</option>
+            </select>
+        </div>
+    </fieldset>
+    <fieldset class="form-group">
+        <label class="control-label col-sm-2" >Bot name: </label>
+
+        <div class="col-sm-10">
+            <input name='name' ng-model="bot.name" tooltip-html="nameTooltip"
+                   placeholder="Give your bot a name" class="form-control" required/>
+        </div>
+    </fieldset>
+    <fieldset class="form-group">
+        <label class="control-label col-sm-2" >Target exchange: </label>
+
+        <div class="col-sm-10">
+            <select id="api" name="api" ng-model="bot.api" ng-change="changeTargetExchange(bot)"
+                    tooltip-html="apiTooltip"
+                    ng-options="exchange.name as exchange.name for exchange in Exchanges" required>
+                <option value="" selected>Select an exchange</option>
+            </select>
+        </div>
+    </fieldset>
+    <div ng-if="bot.type == 'ema'" ng-include="'bot/emaconfig.html'"></div>
+    <div ng-if="bot.type == 'graph'" ng-include="'bot/graphbotconfig.html'"></div>
+    <div class="modal-footer">
+        <input class="btn btn-primary" type="submit" ng-click="botform.$valid && addBot(bot)" value="Save"/>
+        <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+    </div>
+
+</form>

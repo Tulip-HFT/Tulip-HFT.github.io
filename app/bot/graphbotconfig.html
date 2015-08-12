@@ -1,0 +1,63 @@
+<!-- Graph config-->
+<fieldset class="form-group">
+    <label class="control-label col-sm-2">Profit: </label>
+    <div class="col-sm-10">
+        <input name='profit' ng-model="bot.profitpercentage" min="0" max="4" ui-percentage-mask="2"
+               placeholder="min profit to initiate a trade" class="form-control"
+               tooltip-html="profitTooltip" required/>
+    </div>
+</fieldset>
+<fieldset class="form-group">
+    <label class="control-label col-sm-2">Speculative Profit: </label>
+    <div class="col-sm-10">
+        <input name='speculativeprofit' ng-model="bot.speculativeprofitpercentage" ui-percentage-mask="2"
+               placeholder="min speculative profit to initiate a trade" class="form-control" min="0" max="4"
+               tooltip-html="specTooltip" required/>
+    </div>
+</fieldset>
+<fieldset class="form-group">
+    <label class="control-label col-sm-2">Max invest: </label>
+    <div class="col-sm-10">
+        <input name='maxinvest' type="number" min="0"  ng-model="bot.maxinvest" placeholder="Maximum amount to invest"
+               class="form-control" tooltip-html="maxinvestTooltip"  required/>
+    </div>
+</fieldset>
+<fieldset class="form-group">
+    <label class="control-label col-sm-2">Ignore: </label>
+    <div class="col-sm-10">
+        <input name='ignorecenter' ng-model="bot.ignorecenter" class="form-control"
+               placeholder="do not trade over ..." tooltip-html="ignoreTooltip" />
+    </div>
+</fieldset>
+<fieldset class="form-group">
+    <label class="control-label col-sm-2">Big: </label>
+    <div class="col-sm-10">
+        <input name='big' ng-model="bot.big" class="form-control"
+               placeholder="The main currency" tooltip-html="bigTooltip" required/>
+    </div>
+</fieldset>
+<fieldset class="form-group">
+    <label class="control-label col-sm-2">High: </label>
+    <div class="col-sm-10">
+        <input name='high' type="number" min="0" ng-model="bot.high" placeholder="Maximum funds in big"
+               class="form-control" tooltip-html="highTooltip"  required/>
+    </div>
+</fieldset>
+<fieldset class="form-group">
+    <label class="control-label col-sm-2">Low: </label>
+    <div class="col-sm-10">
+        <input name='low' type="number" min="0" ng-model="bot.low" placeholder="Minimum funds in big"
+               class="form-control" tooltip-html="lowTooltip" required/>
+    </div>
+</fieldset>
+<fieldset class="form-group">
+    <label class="control-label col-sm-2">Return: </label>
+    <div class="col-sm-10">
+        <select id="return" name="return" ng-model="bot.return" tooltip-html="returnTooltip">
+            <option value="btc" >btc</option>
+            <option value="ltc" >ltc</option>
+            <option value="cny" >cny</option>
+            <option value="" selected>Select the market you want to trade on</option>
+        </select>
+    </div>
+</fieldset>

@@ -1,0 +1,73 @@
+<div class="modal-header">
+    <h3 class="modal-title">{{modaltitle}}</h3>
+</div>
+
+<form class="modal-body form-horizontal" name="exchangeform">
+    <fieldset class="form-group">
+        <label class="control-label col-sm-2">Exchange: </label>
+
+        <div class="col-sm-10">
+            <select id="exchangeID" name="exchangeID" ng-model="exchange.type" tooltip-html="typeTooltip"
+                    ng-options="exchange for exchange in exchangesTypes" required>
+                <option value="" selected>Select an exchange</option>
+            </select>
+        </div>
+    </fieldset>
+    <fieldset class="form-group">
+        <label class="control-label col-sm-2">Exchange name: </label>
+
+        <div class="col-sm-10">
+            <input name='name' ng-model="exchange.name" placeholder="Give your exchange a name" class="form-control"
+                   tooltip-html="nameTooltip" required/>
+        </div>
+    </fieldset>
+    <fieldset class="form-group">
+        <label class="control-label col-sm-2">Public key: </label>
+
+        <div class="col-sm-10">
+            <input name='public' ng-model="exchange.pubkey" placeholder="The public key for your exchange"
+                   class="form-control" tooltip-html="publicTooltip" required/>
+        </div>
+    </fieldset>
+    <fieldset class="form-group">
+        <label class="control-label col-sm-2">Private key: </label>
+
+        <div class="col-sm-10">
+            <input name="private" ng-model="exchange.privkey" placeholder="The private key for your exchange"
+                   class="form-control" tooltip-html="privateTooltip" required/>
+        </div>
+    </fieldset>
+    <fieldset ng-if="exchange.type == 'cex'" class="form-group">
+        <label class="control-label col-sm-2">Username: </label>
+
+        <div class="col-sm-10">
+            <input name="username" ng-model="exchange.username" placeholder="Your username" class="form-control"
+                   tooltip-html="usernameTooltip" required/>
+        </div>
+    </fieldset>
+    <fieldset ng-if="exchange.type == 'itbit'" class="form-group">
+        <label class="control-label col-sm-2">Userid: </label>
+
+        <div class="col-sm-10">
+            <input name="userid" ng-model="exchange.userid" placeholder="Your userid" class="form-control" required/>
+        </div>
+    </fieldset>
+    <fieldset ng-if="exchange.type == 'itbit'" class="form-group">
+        <label class="control-label col-sm-2">Wallet id: </label>
+
+        <div class="col-sm-10">
+            <input name="walletid" ng-model="exchange.walletid" placeholder="Your walletid" class="form-control"
+                   tooltip-html="walletidTooltip" required/>
+        </div>
+    </fieldset>
+    <div class="modal-footer">
+        <input type="submit" class="btn btn-primary" type="button"
+               ng-click="exchangeform.$valid && addExchange(exchange)" value="Save"/>
+        <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+    </div>
+
+
+</form>
+
+
+

@@ -1,0 +1,65 @@
+<!-- EMA config-->
+<fieldset class="form-group">
+    <label class="control-label col-sm-2">Target market: </label>
+
+    <div class="col-sm-10">
+        <select id="target_market" name="targetMarket" ng-model="bot.targetmarket"
+                ng-options="m as m for m in Markets" tooltip-html="targetTooltip" required>
+            <option value="" selected>Select the market you want to trade on</option>
+        </select>
+    </div>
+</fieldset>
+<fieldset class="form-group">
+    <label class="control-label col-sm-2">Margin: </label>
+
+    <div class="col-sm-10">
+        <input type="percent" name='margin' ng-model="bot.margin" min="0" max="6" ui-percentage-mask="2"
+               placeholder="The margin" class="form-control" ng-minlength="1" tooltip-html="marginTooltip" required/>
+    </div>
+</fieldset>
+
+<fieldset class="form-group">
+    <label class="control-label col-sm-2">Long: </label>
+
+    <div class="col-sm-10">
+        <input type="number" min="0" name='long' ng-model="bot.long" tooltip-html="longTooltip"
+               placeholder="Long value" class="form-control" required/>
+    </div>
+</fieldset>
+<table st-table="rowCollection" class="table table-striped" tooltip-html="inputTooltip">
+    <thead>
+    <tr>
+        <th>Exchange</th>
+        <th>Market</th>
+        <th>Flip</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr></tr>
+    <tr ng-repeat="input in bot.watchers track by $index">
+        <td><select ng-model="input.name" ng-change="changeExchangeWatcher(input,$index)"
+                    ng-options="e.name as e.name for e in Exchanges">
+            <option value="">Select the market you want to trade on</option>
+        </select></td>
+        <td><select ng-model="input.market"
+                    ng-options="m as m for m in watcherMarket[$index]">
+            <option value="">Select the market you want to trade on</option>
+        </select></td>
+        <td><input type="checkbox" ng-model="input.flip"></td>
+        <td>
+            <button class="btn btn-sm btn-danger" ng-click="removeInput()">Delete<i
+                    class="glyphicon glyphicon-remove-circle">
+            </i></button>
+        </td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>
+            <button ng-click="addNewInput()">Add another input</button>
+        </td>
+    </tr>
+    </tbody>
+</table>
