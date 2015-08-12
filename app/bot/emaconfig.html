@@ -26,40 +26,76 @@
                placeholder="Long value" class="form-control" required/>
     </div>
 </fieldset>
-<table st-table="rowCollection" class="table table-striped" tooltip-html="inputTooltip">
-    <thead>
-    <tr>
-        <th>Exchange</th>
-        <th>Market</th>
-        <th>Flip</th>
-        <th></th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr></tr>
-    <tr ng-repeat="input in bot.watchers track by $index">
-        <td><select ng-model="input.name" ng-change="changeExchangeWatcher(input,$index)"
+<div class="container-fluid" tooltip-html="inputTooltip">
+    <div class="row" style="font-weight: bold;   border-spacing: 2px; border-bottom: 1px solid grey">
+        <div class="col-xs-4">Exchange</div>
+        <div class="col-xs-4">Market</div>
+        <div class="col-xs-1">Flip</div>
+        <div class="col-xs-1"></div>
+    </div>
+    <div class="row" ng-repeat="input in bot.watchers track by $index" style="border-spacing: 2px;">
+        <div class="col-xs-4">
+            <select ng-model="input.name" ng-change="changeExchangeWatcher(input,$index)"
                     ng-options="e.name as e.name for e in Exchanges">
-            <option value="">Select the market you want to trade on</option>
-        </select></td>
-        <td><select ng-model="input.market"
+                <option value="">Watch exchange...</option>
+            </select>
+        </div>
+        <div class="col-xs-4">
+            <select ng-model="input.market"
                     ng-options="m as m for m in watcherMarket[$index]">
-            <option value="">Select the market you want to trade on</option>
-        </select></td>
-        <td><input type="checkbox" ng-model="input.flip"></td>
-        <td>
-            <button class="btn btn-sm btn-danger" ng-click="removeInput()">Delete<i
-                    class="glyphicon glyphicon-remove-circle">
+                <option value="">Watch market...</option>
+            </select>
+        </div>
+        <div class="col-xs-1"><input type="checkbox" ng-model="input.flip"></div>
+        <div class="col-xs-1">
+            <button class="btn btn-sm btn-danger" ng-click="removeInput()"><i
+                    class="glyphicon glyphicon-remove">
             </i></button>
-        </td>
-    </tr>
-    <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td>
-            <button ng-click="addNewInput()">Add another input</button>
-        </td>
-    </tr>
-    </tbody>
-</table>
+        </div>
+    </div>
+    <div class="row" style="border-spacing: 2px;">
+        <div class="col-xs-4"></div>
+        <div class="col-xs-4"></div>
+        <div class="col-xs-1"></div>
+        <div class="col-xs-1">
+            <button ng-click="addNewInput()"><i class="glyphicon glyphicon-plus"></i></button>
+        </div>
+    </div>
+
+</div>
+<!--<table st-table="rowCollection" class="table table-striped" tooltip-html="inputTooltip">-->
+<!--<thead>-->
+<!--<tr>-->
+<!--<th>Exchange</th>-->
+<!--<th>Market</th>-->
+<!--<th>Flip</th>-->
+<!--<th></th>-->
+<!--</tr>-->
+<!--</thead>-->
+<!--<tbody>-->
+<!--<tr ng-repeat="input in bot.watchers track by $index">-->
+<!--<td><select ng-model="input.name" ng-change="changeExchangeWatcher(input,$index)"-->
+<!--ng-options="e.name as e.name for e in Exchanges">-->
+<!--<option value="">Select exchange to watch</option>-->
+<!--</select></td>-->
+<!--<td><select ng-model="input.market"-->
+<!--ng-options="m as m for m in watcherMarket[$index]">-->
+<!--<option value="">Select market to watch</option>-->
+<!--</select></td>-->
+<!--<td><input type="checkbox" ng-model="input.flip"></td>-->
+<!--<td>-->
+<!--<button class="btn btn-sm btn-danger" ng-click="removeInput()"><i-->
+<!--class="glyphicon glyphicon-remove">-->
+<!--</i></button>-->
+<!--</td>-->
+<!--</tr>-->
+<!--<tr>-->
+<!--<td></td>-->
+<!--<td></td>-->
+<!--<td></td>-->
+<!--<td>-->
+<!--<button ng-click="addNewInput()"><i class="glyphicon glyphicon-plus"></i></button>-->
+<!--</td>-->
+<!--</tr>-->
+<!--</tbody>-->
+<!--</table>-->
