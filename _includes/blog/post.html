@@ -25,7 +25,7 @@
                     <meta name="twitter:card" content="summary">
                     <meta name="twitter:image" content="{{site.url}}/img/logo.png" />
                 {% endif %}
-                <meta property="og:url" content="{{page.url}}"/>
+                <meta property="og:url" content="{{site.url}}{{page.url}}"/>
                 <meta property="og:type" content="Article"/>
 
                 <meta property="og:site_name" content="Tulip-HFT"/>
@@ -44,9 +44,9 @@
                 </div>
                 <div style="padding-top: 20px;padding-bottom: 20px" class="entry" itemprop="articleBody">
                     {{ content }}
-                    <script type="IN/Share" data-url="{{url}}" data-counter="right"></script>
+                    <script type="IN/Share" data-url="{{page.url}}" data-counter="right"></script>
                     <script type="text/javascript" src="//www.redditstatic.com/button/button1.js"></script>
-                    <a href="https://twitter.com/share" class="twitter-share-button" data-url="{{url}}" data-text="{{title}}"
+                    <a href="https://twitter.com/share" class="twitter-share-button" data-url="{{site.url}}{{page.url}}" data-text="{{title}}"
                        data-via="TulipHFT">Tweet</a>
                     <div class="g-plus" data-action="share" data-height="15"></div>
                 </div>
