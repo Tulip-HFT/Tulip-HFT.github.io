@@ -3,7 +3,7 @@ layout: post
 modal-id: 6
 title: An overview and the implications of BitcoinXT
 date: 2015-08-21
-img: http://localhost:4000/img/lego.jpg
+img: http://tuliphft.com/img/lego.jpg
 alt: image-alt
 comments: true
 category: Bitcoin
