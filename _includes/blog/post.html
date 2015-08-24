@@ -1,0 +1,75 @@
+<section id="post" >
+<div class="container" style="padding-top: 5%">
+    <div class="row col-lg-12" >
+            <article class="post" itemscope="" itemtype="http://schema.org/BlogPosting">
+                <meta itemprop="keywords" content="{{ tags | join: ',' }}"/>
+                <meta itemprop="description"
+                      content="{{ content | strip_html | truncatewords: 40 }}"/>
+
+                <meta name="twitter:site" content="@TulipHFT">
+                <meta name="twitter:title" content="{{page.title}}">
+                {% if page.description %}
+                <meta name="twitter:description" content="{{ page.description | strip_html | truncatewords: 200 }}”>
+                <meta property="og:description" content="{{ page.description | strip_html | truncatewords: 156 }}"/>
+                {% else %}
+                <meta name="twitter:description" content="{{ content | strip_html | truncatewords: 200 }}”>
+                <meta property="og:description" content="{{ content | strip_html | truncatewords: 156 }}"/>
+                {% endif %}
+        <meta name=" twitter:creator
+                " content="@TulipHFT">
+                {% if page.img %}
+                    <meta name="twitter:card" content="summary_large_image">
+                    <meta name="twitter:image:src" content="{{page.img}}">
+                    <meta property="og:image" content="{{page.img}}"/>
+                {% else %}
+                    <meta name="twitter:card" content="summary">
+                    <meta name="twitter:image" content="{{site.url}}/img/logo.png" />
+                {% endif %}
+                <meta property="og:url" content="{{page.url}}"/>
+                <meta property="og:type" content="Article"/>
+
+                <meta property="og:site_name" content="Tulip-HFT"/>
+
+                <div class=" text-center">
+                    {% if page.img %}
+                        <img src="{{page.img}}" itemprop="image"/>
+                    {% endif %}
+                    <h1 itemprop="name">{{ page.title }}</h1>
+                    <time class="published" itemprop="datePublished"
+                          datetime="{{ page.date | date: '%Y-%m-%d' }}">
+                        {{ page.date | date: "%B %e, %Y" }}
+                    </time><br />
+                    {{page.authors}}
+
+                </div>
+                <div style="padding-top: 20px;padding-bottom: 20px" class="entry" itemprop="articleBody">
+                    {{ content }}
+                    <script type="IN/Share" data-url="{{url}}" data-counter="right"></script>
+                    <script type="text/javascript" src="//www.redditstatic.com/button/button1.js"></script>
+                    <a href="https://twitter.com/share" class="twitter-share-button" data-url="{{url}}" data-text="{{title}}"
+                       data-via="TulipHFT">Tweet</a>
+                    <div class="g-plus" data-action="share" data-height="15"></div>
+                </div>
+
+            </article>
+            {% if page.comments %}
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+                /* * * CONFIGURATION VARIABLES * * */
+                // Required: on line below, replace text in quotes with your forum shortname
+                var disqus_shortname = 'tuliphftblog';
+                var disqus_url = 'http://{{site.url}}{{page.url}}';
+                var disqus_identifier = '{{page.title}}';
+
+                /* * * DON'T EDIT BELOW THIS LINE * * */
+                (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+            {% endif %}
+    </div>
+</div>
+</section>
