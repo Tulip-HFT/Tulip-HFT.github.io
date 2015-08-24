@@ -1,7 +1,8 @@
 # Site settings
 title: Tulip-HFT 
 email: tuliphft@gmail.com 
-url: tuliphft.com
+url: localhost:4000
+#url: tuliphft.com
 description: "Tulip High Frequency Trading (Tulip-HFT) is a Registered Dutch company that sells Algorithmic Trading software designed for the cryptocurrency market."
 
 # Color settings (hex-codes without the leading
@@ -40,8 +41,11 @@ analytics :
   google :
   tracking_id : 'UA-59914141-1'
 
+paginate: 10
+paginate_path: "/blog/page:num/"
 defaults:
   -
+
     scope:
       path: "" # an empty string here means all files in the project
       type: "posts" # previously `post` in Jekyll 2.2.

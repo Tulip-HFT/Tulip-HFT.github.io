@@ -1,0 +1,52 @@
+<section id="blog">
+<div class="container" style="padding-top: 5%">
+    {% for post in paginator.posts %}
+    <div class="row col-lg-12" style=" padding-bottom: 20px">
+        <article role="article" class="post-item" itemscope="itemscope" itemtype="http://schema.org/BlogPosting"
+                 itemprop="blogPost">
+
+
+            <div class="content">
+                <a href="{{ post.url | prepend: site.baseurl }}"><h2 class="post-title" itemprop="name">{{ post.title}}</h2></a>
+                 <span style="color: grey; padding-bottom: 10px" class="datetime">
+                        <meta itemprop="datePublished" content="{{post.date}}">
+                        <i class="fa fa-clock-o"></i>
+                        <time datetime="{{ post.date | date_to_xmlschema }}">
+                        <span class="day">
+                            {{ post.date | date: "%d" }}
+                        </span>
+                        <span class="month-year">
+                            {{ post.date | date: "%B %Y" }}
+                        </span>
+                        </time> |
+                        {{ post.authors}}
+                    </span>
+                <p class="description">
+                    {{ post.content | strip_html | truncatewords:40 }}
+                    <a href="{{ post.url | prepend: site.baseurl }}" class="link">Read more about {{post.title}}</a>
+                </p>
+
+                <!--<div class="tags">-->
+                <!--Tags: {% for tag in post.tags %}-->
+                <!--<a href="{{ baseurl }}/tags/#{{tag}}">{{ tag }}</a>-->
+                <!--{% endfor %}-->
+                <!--</div>-->
+            </div>
+        </article>
+    </div>
+    {% endfor %}
+    <div class="row pagination col-lg-12 text-center">
+        {% if paginator.previous_page %}
+        <a href="{{ paginator.previous_page_path }}" class="previous">Previous</a>
+        {% else %}
+        <span class="previous">Previous</span>
+        {% endif %}
+        <span class="page_number ">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span>
+        {% if paginator.next_page %}
+        <a href="{{ paginator.next_page_path }}" class="next">Next</a>
+        {% else %}
+        <span class="next ">Next</span>
+        {% endif %}
+    </div>
+</div>
+</section>
