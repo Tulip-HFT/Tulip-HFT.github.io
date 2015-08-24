@@ -44,7 +44,7 @@
                 </div>
                 <div style="padding-top: 20px;padding-bottom: 20px" class="entry" itemprop="articleBody">
                     {{ content }}
-                    <script type="IN/Share" data-url="{{page.url}}" data-counter="right"></script>
+                    <script type="IN/Share" data-url="{{site.url}}{{page.url}}" data-counter="right"></script>
                     <script type="text/javascript" src="//www.redditstatic.com/button/button1.js"></script>
                     <a href="https://twitter.com/share" class="twitter-share-button" data-url="{{site.url}}{{page.url}}" data-text="{{title}}"
                        data-via="TulipHFT">Tweet</a>
@@ -58,7 +58,7 @@
                 /* * * CONFIGURATION VARIABLES * * */
                 // Required: on line below, replace text in quotes with your forum shortname
                 var disqus_shortname = 'tuliphftblog';
-                var disqus_url = 'http://{{site.url}}{{page.url}}';
+                var disqus_url = '{{site.url}}{{page.url}}';
                 var disqus_identifier = '{{page.title}}';
 
                 /* * * DON'T EDIT BELOW THIS LINE * * */
