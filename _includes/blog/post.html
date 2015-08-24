@@ -2,33 +2,7 @@
 <div class="container" style="padding-top: 5%">
     <div class="row col-lg-12" >
             <article class="post" itemscope="" itemtype="http://schema.org/BlogPosting">
-                <meta itemprop="keywords" content="{{ tags | join: ',' }}"/>
-                <meta itemprop="description"
-                      content="{{ content | strip_html | truncatewords: 40 }}"/>
 
-                <meta name="twitter:site" content="@TulipHFT">
-                <meta name="twitter:title" content="{{page.title}}">
-                {% if page.description %}
-                <meta name="twitter:description" content="{{ page.description | strip_html | truncatewords: 200 }}”>
-                <meta property="og:description" content="{{ page.description | strip_html | truncatewords: 156 }}"/>
-                {% else %}
-                <meta name="twitter:description" content="{{ content | strip_html | truncatewords: 200 }}”>
-                <meta property="og:description" content="{{ content | strip_html | truncatewords: 156 }}"/>
-                {% endif %}
-        <meta name=" twitter:creator
-                " content="@TulipHFT">
-                {% if page.img %}
-                    <meta name="twitter:card" content="summary_large_image">
-                    <meta name="twitter:image:src" content="{{page.img}}">
-                    <meta property="og:image" content="{{page.img}}"/>
-                {% else %}
-                    <meta name="twitter:card" content="summary">
-                    <meta name="twitter:image" content="{{site.url}}/img/logo.png" />
-                {% endif %}
-                <meta property="og:url" content="{{site.url}}{{page.url}}"/>
-                <meta property="og:type" content="Article"/>
-
-                <meta property="og:site_name" content="Tulip-HFT"/>
 
                 <div class=" text-center">
                     {% if page.img %}
