@@ -2,7 +2,6 @@
 title: Tulip-HFT 
 email: tuliphft@gmail.com 
 url: tuliphft.com
-#baseurl: /home/jasper/projects/jeckylexperiment/tuliphft 
 description: "Tulip High Frequency Trading (Tulip-HFT) is a Registered Dutch company that sells Algorithmic Trading software designed for the cryptocurrency market."
 
 # Color settings (hex-codes without the leading
@@ -19,6 +18,7 @@ footer:
   credits: Credits
 # Social networks usernames (many more available: google-plus, flickr, dribbble, pinterest, instagram, tumblr, linkedin, etc.)
 
+
 social:
   - title: twitter
     url: http://twitter.com/TulipHFT 
@@ -34,8 +34,16 @@ social:
 credits: 'This site is build with Freelancer, a free to use, open  source Bootstrap theme created by <a href="http://startbootstrap.com/">Start Bootstrap</a>.'
 # Build settings 
 markdown: kramdown 
-permalink: pretty
+permalink: /blog/:year/:month/:day/:title
 analytics :
   provider : google
   google :
   tracking_id : 'UA-59914141-1'
+
+defaults:
+  -
+    scope:
+      path: "" # an empty string here means all files in the project
+      type: "posts" # previously `post` in Jekyll 2.2.
+    values:
+      layout: "post"
