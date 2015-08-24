@@ -2,7 +2,7 @@
 layout: post
 modal-id: 6
 title: An overview and the implications of BitcoinXT
-date: 2015-08-21
+date: 2015-08-24
 img: http://tuliphft.com/img/lego.jpg
 alt: image-alt
 comments: true
@@ -11,11 +11,7 @@ authors: Stefan Dessens & Jasper van Gelder
 tags: [bitcoin,BitcoinXT,blockchain]
 ---
 
-# An overview and the implications of BitcoinXT
-Created Friday 21 August 2015
-
 Recently, there has been a lot of media coverage of the drama surrounding Bitcoin XT. Hoewever, we think that actual factual coverage is lacking. In this blog, we attempt to provide an overview of the circumstances that led to the creation of Bitcoin XT, and the risks associated with a possible bitcoin fork.
-
 
 The current debate
 ------------------
