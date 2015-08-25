@@ -35,7 +35,7 @@ social:
 credits: 'This site is build with Freelancer, a free to use, open  source Bootstrap theme created by <a href="http://startbootstrap.com/">Start Bootstrap</a>.'
 # Build settings 
 markdown: kramdown 
-permalink: /blog/:year/:month/:day/:title
+permalink: /blog/:year/:month/:day/:title.html
 analytics :
   provider : google
   google :
