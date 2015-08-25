@@ -19,7 +19,7 @@ The original bitcoin software, called bitcoin Core, was created by Satoshi Nakam
 
 Recently, the developers have been unable to reach an agreement over a very important issue, bitcoin's scalability. To understand this, we first need to explain how bitcoin works. Bitcoin processes transactions by placing them in blocks. At certain intervals, a block is added to the Bitcoin blockchain. Currently, blocks have a maximum size of 1MiB, limiting the amount of transactions that can be done per block. In the past years, this has not been an issue. However, it is forecast that it will become an issue as early as 2016. The developers agree that this is a serious issue, but disagree over when it will become a problem, and how the best to tackle it.
   
-> To put bitcoin transactions in perspective: Visa already handled 47.000 transactions per second(TPS) during peak time in 2013 [1](http://www.visa.com/blogarchives/us/2013/10/10/stress-test-prepares-visanet-for-the-most-wonderful-time-of-the-year/index.html), The average blocksize for August 2015 is 0.47MB, and the average TPS 1.8 [2](https://tradeblock.com/blockchain/historical/1w-f-tps-01071-blksize_per_avg-01071). This means bitcoin can only do ~3.8TPS if blocksizes remain stable, but from [2] we can also observe an increase in blocksize which means we can probably even do less TPS.  
+> To put bitcoin transactions in perspective: Visa already handled 47.000 transactions per second(TPS) during peak time in 2013 [[1]](#references), The average blocksize for August 2015 is 0.47MB, and the average TPS 1.8 [[2]](#references). This means bitcoin can only do ~3.8TPS if blocksizes remain stable, but from [[2]](#references) we can also observe an increase in blocksize which means we can probably even do less TPS.  
 
 It is important to emphasize that previous changes to bitcoin Core were the result from unanimous agreement from all developers. It is clear that the developers won't reach an agreement over bitcoin's scaling issue. As a result, a few developers have made a [fork](https://en.wikipedia.org/wiki/Fork_%28software_development%29) (a copy) of the bitcoin software that tackles the scaling issue according to what they think is the best solution. This project is called BitcoinXT. While the term 'a copy of' may sound scary, it is a standard practice in software. Bitcoin Core is not 'the real' bitcoin software, nor is XT. Anyone has the right to fork bitcoin and adjust it to their needs. As such, bitcoin Core is not 'better' than XT or vice versa, it is simply different, and you should run the sofware that represents your views.
 
@@ -52,13 +52,13 @@ When the XT blockchain wins, its very likely that bitcoin Core will also update 
 
 Besides increasing the blocksize BitcoinXT adds the following features:
 
-**Double spend relaying:**  The implementation of this feature, broadcasts a warning to the network when a user tries to respend his Bitcoin. This allows other nodes to become aware of this and take action. 
+**Double spend relaying:**&nbsp;&nbsp;The implementation of this feature, broadcasts a warning to the network when a user tries to respend his Bitcoin. This allows other nodes to become aware of this and take action. 
 
-**Support for BIP64:**  This allows a client to ask a node for a list of addresses with nonzero balance. This can be used in clients that do not wish to download the entire blockchain to provide basic wallet functionality. The returned information is not authenticated in any way.
+**Support for BIP64:**&nbsp;&nbsp;This allows a client to ask a node for a list of addresses with nonzero balance. This can be used in clients that do not wish to download the entire blockchain to provide basic wallet functionality. The returned information is not authenticated in any way.
 
-**Refresh DNS list:**  Two new DNS seeds are re-added/added (bitnodes.io and visnumeris.com) and it has been documented who runs which. These DNS seeds are used to search for reliable nodes while booting. When booted your node will continue to use p2p node discovery.
+**Refresh DNS list:**&nbsp;&nbsp;Two new DNS seeds are re-added/added (bitnodes.io and visnumeris.com) and it has been documented who runs which. These DNS seeds are used to search for reliable nodes while booting. When booted your node will continue to use p2p node discovery.
 
-**Anti-Dos attack improvements:**  One of the problems with bitcoin nodes is that you can easily dos them by opening a lot of connections each with a different IP. This feature intends to solve that by giving a certain priority depending on the group in which an IP belongs to. Right now, only one group is defined which gives a low priority to all connections from the Tor network. 
+**Anti-Dos attack improvements:**&nbsp;&nbsp;One of the problems with bitcoin nodes is that you can easily dos them by opening a lot of connections each with a different IP. This feature intends to solve that by giving a certain priority depending on the group in which an IP belongs to. Right now, only one group is defined which gives a low priority to all connections from the Tor network. 
 
 It has been rumoured that by definition you are on a blacklisted and there for cannot connect. This is simply not true. When, a node can no longer handle connections it will disconnect Tor connections first. This prevents attacks from the Tor network.
  
@@ -86,3 +86,8 @@ The beauty of open source software is the fact that you are allowed to fork it a
 **Stefan Dessens**
 
 I support the change to larger blocks, in the sense that I think that the Bitcoin Core team will not have a solution to the scaling problem ready in time. However, I think that XT is used as a cover to push other controversial changes into bitcoin. If the XT team support larger blocks, then they shouldn't include other changes into their version of bitcoin. Luckily, these changes do not affect compatibility with the Bitcoin network. So switching back to Core after the fork is possible, if you don't agree with the changes the XT team has made.
+
+References
+----------
+[1] Visa.com, 'Stress Test Prepares VisaNet for the Most Wonderful Time of the Year «  Visa’s Blog – Visa Viewpoints', 2013. [http://www.visa.com/blogarchives/us/2013/10/10/stress-test-prepares-visanet-for-the-most-wonderful-time-of-the-year/index.html](http://www.visa.com/blogarchives/us/2013/10/10/stress-test-prepares-visanet-for-the-most-wonderful-time-of-the-year/index.html).  
+[2] TradeBlock, 'TradeBlock', 2015. [https://tradeblock.com/blockchain/historical/1w-f-tps-01071-blksize_per_avg-01071](https://tradeblock.com/blockchain/historical/1w-f-tps-01071-blksize_per_avg-01071).
