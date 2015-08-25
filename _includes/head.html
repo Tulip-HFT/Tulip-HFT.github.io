@@ -3,7 +3,7 @@
     <meta property="og:site_name" content="Tulip-HFT"/>
     <meta property="og:url" content="{{ page.url | prepend: site.baseurl | prepend: site.url }}">
     <meta property="og:locale" content="en_GB">
-    <link rel="canonical" href="{{ page.url  | prepend: site.url }}">
+
     {% if page.comments %}
         {% if page.description %}
             <meta property="og:description" content="{{ page.description | strip_html | strip_newlines | truncate: 160 }}">
@@ -84,7 +84,6 @@
             fjs.parentNode.insertBefore(js, fjs);
         }
     }(document, 'script', 'twitter-wjs');</script>
-    <!-- linkedin -->
-    <script src="//platform.linkedin.com/in.js" type="text/javascript"> lang: en_US</script>
+
 
 </head>
