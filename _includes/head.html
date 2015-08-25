@@ -28,8 +28,8 @@
         <meta name="twitter:card" content="summary_large_image">
         <meta name="twitter:image" content="{{site.thumbnail }}" />
         <meta name="og:image" content="{{ site.thumbnail }}" />
-        <meta itemprop="description"
-          content="{{ site.description | strip_html | truncatewords: 40 }}"/>
+        <meta property="og:description" content="{{ site.description | strip_html | truncatewords: 40 }}"/>
+        <meta name="twitter:description" content="{{ page.description | strip_html | truncatewords: 200 }}">
         <meta property="og:type" content="website">
         <meta property="og:title" content="{{ site.title }}">
         <meta name="twitter:title" content="{{site.title}}">
