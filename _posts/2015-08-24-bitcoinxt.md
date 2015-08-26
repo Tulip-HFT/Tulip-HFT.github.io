@@ -60,7 +60,7 @@ Besides increasing the blocksize BitcoinXT adds the following features:
 
 **Anti-Dos attack improvements:**&nbsp;&nbsp;One of the problems with bitcoin nodes is that you can easily dos them by opening a lot of connections each with a different IP. This feature intends to solve that by giving a certain priority depending on the group in which an IP belongs to. Right now, only one group is defined which gives a low priority to all connections from the Tor network. 
 
-It has been rumoured that by definition you are on a blacklisted and there for cannot connect. This is simply not true. When, a node can no longer handle connections it will disconnect Tor connections first. This prevents attacks from the Tor network.
+It has been rumoured that if you use Tor, you are blacklisted and therefore cannot connect. This is simply not true. When, a node can no longer handle connections it will disconnect Tor connections first. This prevents attacks from the Tor network.
  
  The other problem was that an attacker could jam a node by opening a connection with the incentive to send a transaction or block but never sending it. This feature tries to solve it by reducing the time in which a connection is killed if none is delivered. 
 
