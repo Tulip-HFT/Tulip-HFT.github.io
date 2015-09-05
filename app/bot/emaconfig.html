@@ -17,7 +17,22 @@
                placeholder="The margin" class="form-control" ng-minlength="1" tooltip-html="marginTooltip" required/>
     </div>
 </fieldset>
+<fieldset class="form-group">
+    <label class="control-label col-sm-2">Minimum order size: </label>
 
+    <div class="col-sm-10">
+        <input type="number" min="0" name='min' step="any" ng-model="bot.min_order_size" tooltip-html="minTooltip"
+               placeholder="Minimum size" class="form-control" required/>
+    </div>
+</fieldset>
+<fieldset class="form-group">
+    <label class="control-label col-sm-2">Maximum order size: : </label>
+
+    <div class="col-sm-10">
+        <input type="number" min="0" name='max' step="any" ng-model="bot.max_order_size" tooltip-html="maxTooltip"
+               placeholder="Maximum size" class="form-control" required/>
+    </div>
+</fieldset>
 <fieldset class="form-group">
     <label class="control-label col-sm-2">Long: </label>
 

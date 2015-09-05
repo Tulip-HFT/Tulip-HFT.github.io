@@ -1,5 +1,5 @@
 /**
- * Created by jasper on 6-8-15.
+ * Creaparticularer on 6-8-15.
  */
 'use strict';
 
@@ -22,6 +22,14 @@ angular.module('tulipWebGui.bot', ['ngRoute'])
 
         $rootScope.marginTooltip = $sce.trustAsHtml("<p>The minimum deviation before the bot will atempt to trade. Ignoring latency issues, this is the average profit that the bot will make each trade.<p/>" +
             "<p><b>Suggested value:</b> between 3 and 5 times the fee on the exchange. Setting this too low and the fees will eat up your profits, setting this too high and you might not do any trades at all.</p>");
+
+        $rootScope.minTooltip = $sce.trustAsHtml("<p>The minimum order size the bot should use.</p>");
+
+        $rootScope.maxTooltip = $sce.trustAsHtml("<p>The <span style='text-decoration: underline;'>maximum order size</span> allows you to limit the size of orders.</p>" +
+            "<p>The bot always spends all his funds.</p>" +
+            "<p>The bot will create orders with a random size &LT <span style='text-decoration: underline;'>maximum order size</span> and random price &PlusMinus; the" +
+            " <span style='text-decoration: underline;'>margin</span> (depending on the side) until all funds for that market are in orders.</p>" +
+            "<p>This is useful when you want to push a lot of funds through the market.</p>");
 
         $rootScope.longTooltip = $sce.trustAsHtml("<p>A rough indication of the amount of trades the bot takes into account when making decisions.</p>" +
             "<p>The bot will wait 2*<span style='text-decoration: underline;'>long</span> time before making it's first trade.</p>" +
