@@ -95,7 +95,7 @@ angular.module('tulipWebGui.exchange', ['ngRoute'])
     .controller('ExchangeCreateCtrl', function ($scope, $modalInstance, MarketService, ExchangeService, $sce) {
         $scope.exchangesTypes = MarketService.Exchanges();
         $scope.exchanges = ExchangeService.getExchanges();
-        $scope.exchange = {};
+        $scope.exchange = {"pubkey":"", "privkey":""};
 
         $scope.modaltitle= "Create exchange"
 
