@@ -60,6 +60,14 @@
                    tooltip-html="walletidTooltip" required/>
         </div>
     </fieldset>
+    <fieldset ng-if="exchange.type == 'bitfinex'" class="form-group">
+        <label class="control-label col-sm-2">Margintrading: </label>
+
+        <div class="col-sm-1">
+            <input type="checkbox" name="margintrading" ng-model="exchange.margintrading" class="form-control"
+                   tooltip-html="margintradingTooltip" />
+        </div>
+    </fieldset>
     <div class="modal-footer">
         <input type="submit" class="btn btn-primary" type="button"
                ng-click="exchangeform.$valid && addExchange(exchange)" value="Save"/>
