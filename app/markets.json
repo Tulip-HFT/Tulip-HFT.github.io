@@ -1,4 +1,9 @@
 {
+    "bitfinex": [
+        "btc/usd", 
+        "ltc/usd", 
+        "ltc/btc"
+    ], 
     "btcchina": [
         "btc/cny", 
         "ltc/cny", 
@@ -216,6 +221,7 @@
         "ags/btc", 
         "alf/btc", 
         "aln/btc", 
+        "amber/btc", 
         "amc/btc", 
         "anc/btc", 
         "apex/btc", 
@@ -325,6 +331,7 @@
         "kgc/btc", 
         "lab/btc", 
         "lgd/btc", 
+        "limx/btc", 
         "lk7/btc", 
         "lky/btc", 
         "lsd/btc", 
@@ -360,6 +367,7 @@
         "nmb/btc", 
         "nmc/btc", 
         "nobl/btc", 
+        "note/btc", 
         "nrb/btc", 
         "nrs/btc", 
         "nsr/btc", 
@@ -379,6 +387,8 @@
         "pxc/btc", 
         "pyc/btc", 
         "qrk/btc", 
+        "rbr/btc", 
+        "rby/btc", 
         "rdd/btc", 
         "ripo/btc", 
         "rpc/btc", 
@@ -417,6 +427,7 @@
         "tit/btc", 
         "tor/btc", 
         "trc/btc", 
+        "trk/btc", 
         "tron/btc", 
         "ttc/btc", 
         "ultc/btc", 
@@ -446,6 +457,7 @@
         "xmr/btc", 
         "xpm/btc", 
         "xpy/btc", 
+        "xra/btc", 
         "xrp/btc", 
         "xst/btc", 
         "xxx/btc", 
