@@ -1,26 +1,65 @@
-<h1>Welcome to the Tulip Trading Bot WebGUI</h1>
+<div ng-controller="MainController as mainCtrl">
+    <h1>Welcome to the Tulip Trading Bot WebGUI</h1>
 
-<p>
-This tool should help you, to create a configuration file for the Tulip Trading Bot.
-The result will be a configuration in a JSON file that you can pass to the Bot by using: tulip-trading-bot -c "config Filename"
-    You can also create the JSON file yourself, but preferably use the gui in order to avoid errors.
-    <br />
-    <br />
-    First, configure all the exchanges you wish to use in the <a href="#/exchange">'exchange'</a> tab.
-    Depending on which bot you want to use, you might want to add an entry for each exchange you do not have an account for. You can leave the api keys for those blank.
-    <br />
-    Second, configure bots you wish to use in the <a href="#/bot">'bot'</a> tab.
-    <br />
-    Third, when you have finished your configuration you can download it in the <a href="#/viewconfig">'viewconfig'</a> tab.
-    <br />
-    <br />
-    We support 2 different bots.
-    <br />
-    <br />
-    <b>Graph bot.</b> This bot trades on all markets, on a single exchange using arbitrage based tactics. We've made ridiculous amounts of bitcoins with this bot on Cryptsy and Bter in the first half of 2014, but we have yet to finds settings that work in the past few months. It did always work fine on mintpal, we've never really tried it on exchanges other than those three. The profits of this bot depends a lot on how active the altcoin markets are.
-    <br />
-    <br />
-    <b>Ema bot.</b> This bot trades on one market on single exchange, but does so by inspecting trades on different exchanges. Depending on market conditions, it will either try to go all-in BTC or USD (if you are trading on BTC/USD, that is). This bot has been outperforming 'randomized' trading strategies quite consitently with between 5 and 10% profit each month.
-<br />
-    Despite the name, the ema bot does actually not use classical ema, and does not have anything to do with ema crossover either. We run the ema bot on around 5 different exchanges to spread risks.
-</p>
+    <p>
+        This tool should help you, to create a configuration file for the Tulip Trading Bot.
+        The result will be a configuration in a JSON file that you can pass to the Bot by using: tulip-trading-bot -c
+        "config Filename"</p>
+    <p>An instruction guide can be found below:</p>
+    <div class="bs-callout">
+    <h1>0 <i class="fa fa-pause"></i> Before we start</h1>
+
+    <p>Before we start the configuration we need to create accounts for exchanges we want to trade on. Tulip currently supports the following exchanges: <span ng-repeat="exchange in exchanges">{{exchange}}, </span></p>
+    <p>When you have created your account(s), it is time to get the API keys. On each website this can be found on a different place, but it usually looks like the picture below:</p>
+    <img src="img/btce.png"/>
+    <p>In the case of Btce you have to go to 1. profile <i class="fa fa-arrow-right"></i> 2. API keys <i class="fa fa-arrow-right"></i> 3. perms, It is <span class="text-danger">important that you check both info and trade! if you forget this you won't be able to trade with our software.</span></p>
+        <p>On other sites you might find the API keys on a different place, but they are usually come in a pair in a similar format. </p>
+    <h1>1 <i class="fa fa-cog"></i> Configuration</h1>
+
+    <p>After we created the API keys for the respective exchanges, we are ready to start the configuration</p>
+        <div class="bs-callout">
+    <h2>1.1 <i class="fa fa-exchange"></i> Adding exchanges</h2>
+
+    <p>The first step is to add the information(API keys from step 0) from our exchange(s) in the <a href="#/exchange">'exchange'</a> tab</p>.
+            <p>In this tab you have the possibility to add multiple exchanges</p>
+
+    <h2>1.2 <i class="fa fa-android"></i> Selecting a bot</h2>
+    <p>The next step is to select a bot/strategy. There are a lot of strategies to trade for a profit, we currently support two: Graph and EMA</p>
+    <div class="bs-callout">
+    <p><b>Graph bot.</b> This bot trades on all markets, on a single exchange using arbitrage based tactics. We've made
+        ridiculous amounts of Bitcoins with this bot on Cryptsy and Bter in the first half of 2014, but we have yet to
+        find settings that work now. We've never tried it on other exchanges. The profit of this bot depends a lot on how active the altcoin markets
+        are.</p>
+
+    <p><b>Ema bot.</b> This bot trades on one market on single exchange, but does so by inspecting trades on different
+        exchanges via watchers. Depending on market conditions, it will either try to go all-in BTC or USD (that is if you are trading on
+        BTC/USD). This bot has been outperforming 'randomized' trading strategies quite consistently with a profit between 5 and 10% per month.
+    </p>
+        <p>Despite the name, the ema bot does not actually use classical ema, and does not have anything to do with ema
+            crossover either. We run the ema bot on around 5 different exchanges to spread risks.</p>
+    </div>
+
+    <p>When you have made your choice you can add the bot(s) in the <a href="#/bot">'bot'</a> tab.</p>
+    <p class="bs-callout bg-warning"> Remember that it is possible to configure multiple bots! You can for example run an EMA bot on Itbit and another one on Btce, it is however not advisable to run multiple bots on the same exchange with the same account!</p>
+    <p class="bs-callout bg-info">If you have selected the EMA bot there is the option to select watchers. Watchers depend on exchange but do not require API keys! So in order to use data from other exchanges you do not need an account. Simply add these exchanges in the <a href="#/exchange">'exchange'</a> tab with empty API keys.</p>
+    </div>
+    <h2>2 <i class="fa fa-flag-checkered"></i> Finishing the configuration</h2>
+
+    <p>When the configuration is finished you can download it from <a href="#/viewconfig">'viewconfig'</a> tab.</p>
+
+    <h1>3 <i class="fa fa-play"></i> Starting the bot</h1>
+
+    <p>When you have followed all of the above steps it is time to start the bot. Copy the configuration to a location where the tulip-trading-bot software has access to and start it with
+        tulip-trading-bot -c "configuration Filename"</p>
+    <p><i class="fa fa-trophy"></i> Congratulations! the Tulip software will now start trading for you.</p>
+
+    <h1>Definitions</h1>
+    <ul>
+        <li><b>API key:</b> A code that is used to let software communicate with other software. It is usually a pair of secret and public keys.</li>
+        <li><b>Bot:</b> An implementation of a trading strategy developed by Tulip-HFT.</li>
+        <li><b>Exchange:</b> A place on the internet where you can trade (crypto)currencies. Btce, Bitfinex etc</li>
+        <li><b>Market:</b> A pair of currencies on which you can trade. For example: BTC/USD, BTC/EUR, DOGE/BTC</li>
+        <li><b>Watcher:</b> A entity in the Tulip software that analysis data from a given exchange.</li>
+    </ul>
+    </div>
+</div>

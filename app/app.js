@@ -42,8 +42,9 @@ angular.module('tulipWebGui', [
             controller: 'MainController'
         });
     }])
-    .controller('MainController', ['$scope', 'BotService', 'ExchangeService',
-        function ($scope, BotService, ExchangeService) {
+    .controller('MainController', ['$scope', 'BotService', 'ExchangeService','MarketService',
+        function ($scope, BotService, ExchangeService,MarketService) {
+            $scope.exchanges = MarketService.Exchanges();
             $scope.config = {};
             $scope.config['api'] = ExchangeService.getExchanges();
             $scope.config['bot'] = BotService.getBots();
