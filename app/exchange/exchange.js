@@ -27,6 +27,11 @@ angular.module('tulipWebGui.exchange', ['ngRoute'])
                 callbacks[i](exchanges);
             }
         }
+        var addExchanges = function(exchanges){
+            for(var i = 0;i<exchanges.length;i++){
+                addExchange(exchanges[i]);
+            }
+        }
         var onExchangeAdded = function(callback){
             callbacks.push(callback);
         }
@@ -49,6 +54,7 @@ angular.module('tulipWebGui.exchange', ['ngRoute'])
         return {
             onExchangeAdded : onExchangeAdded,
             addExchange: addExchange,
+            addExchanges: addExchanges,
             getExchanges: getExchanges,
             removeExchange: removeExchange,
             getExchangeMarkets: getExchangeMarkets,

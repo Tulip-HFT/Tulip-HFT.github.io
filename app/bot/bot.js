@@ -73,6 +73,11 @@ angular.module('tulipWebGui.bot', ['ngRoute'])
                 callbacks[i](bots);
             }
         }
+        var addBots = function(bots){
+            for(var i = 0;i<bots.length;i++){
+                addBot(bots[i]);
+            }
+        }
         var onBotAdded = function (callback) {
             callbacks.push(callback);
         }
@@ -88,6 +93,7 @@ angular.module('tulipWebGui.bot', ['ngRoute'])
         return {
             onBotAdded: onBotAdded,
             addBot: addBot,
+            addBots: addBots,
             getBots: getBots,
             removeBot: removeBot,
             getSingleBot: getSingleBot

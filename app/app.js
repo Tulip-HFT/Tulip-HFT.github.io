@@ -42,6 +42,21 @@ angular.module('tulipWebGui', [
             controller: 'MainController'
         });
     }])
+    .directive('fileModel', ['$parse', function ($parse) {
+        return {
+            restrict: 'A',
+            link: function(scope, element, attrs) {
+                var model = $parse(attrs.fileModel);
+                var modelSetter = model.assign;
+
+                element.bind('change', function(){
+                    scope.$apply(function(){
+                        modelSetter(scope, element[0].files[0]);
+                    });
+                });
+            }
+        };
+    }])
     .controller('MainController', ['$scope', 'BotService', 'ExchangeService','MarketService',
         function ($scope, BotService, ExchangeService,MarketService) {
             $scope.exchanges = MarketService.Exchanges();
@@ -55,6 +70,27 @@ angular.module('tulipWebGui', [
                 hiddenElement.download = 'config.json';
                 hiddenElement.click();
             }
+            $scope.import = function() {
+
+                // define reader
+                var reader = new FileReader();
+
+                // A handler for the load event (just defining it, not executing it right now)
+                reader.onload = function(e) {
+                    $scope.$apply(function() {
+                        $scope.configFile = reader.result;
+                        $scope.configFile = angular.fromJson($scope.configFile);
+                        ExchangeService.addExchanges($scope.configFile.api);
+                        BotService.addBots($scope.configFile.bot);
+                    });
+                };
+                var FileInput = $scope.myconfig;
+
+                // use reader to read the selected file
+                // when read operation is successfully finished the load event is triggered
+                // and handled by our reader.onload function
+                reader.readAsText(FileInput);
+            };
 
 
         }
