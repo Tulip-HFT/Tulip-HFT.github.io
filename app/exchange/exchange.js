@@ -15,6 +15,7 @@ angular.module('tulipWebGui.exchange', ['ngRoute'])
         $rootScope.privateTooltip = $sce.trustAsHtml("<p>The private key of of this exchange. Sometimes called 'secret'.</p><p>This can be omitted if you don't plan to trade on this exchange.</p>");
         $rootScope.usernameTooltip = $sce.trustAsHtml("<p>Your CEX.IO username</p><p><br/></p><p>This can be omitted if you don't plan to trade on this exchange.</p>");
         $rootScope.walletidTooltip = $sce.trustAsHtml("<p>The wallet ID on itbit</p><p><br/></p><p>This can be omitted if you don't plan to trade on this exchange.</p>");
+        $rootScope.clientidTooltip = $sce.trustAsHtml("<p>The client ID on bitstamp</p><p><br/></p><p>This can be omitted if you don't plan to trade on this exchange.</p>");
         $rootScope.margintradingTooltip = $sce.trustAsHtml("<p>Check to to use margintrading</p>");
     })
     .service('ExchangeService', function (MarketService) {

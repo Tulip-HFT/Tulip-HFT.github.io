@@ -60,6 +60,14 @@
                    tooltip-html="walletidTooltip" required/>
         </div>
     </fieldset>
+    <fieldset ng-if="exchange.type == 'bitstamp'" class="form-group">
+        <label class="control-label col-sm-2">client id: </label>
+
+        <div class="col-sm-10">
+            <input name="clientid" ng-model="exchange.clientid" placeholder="Your client id" class="form-control"
+                   tooltip-html="clientidTooltip" required/>
+        </div>
+    </fieldset>
     <fieldset ng-if="exchange.type == 'bitfinex'" class="form-group">
         <label class="control-label col-sm-2">Margintrading: </label>
 
